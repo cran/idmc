@@ -1,0 +1,46 @@
+---
+title: "Usage"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+api_envvar_available <- !is.na(Sys.getenv("IDMC_API", unset = NA))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = api_envvar_available
+)
+```
+  
+```{r eval = !api_envvar_available, echo = FALSE, comment = NA}
+message("`IDMC_API` env variable not set, so code chunks will not be evaluated.")  
+```
+
+```{r setup}
+library(idmc)
+```
+
+The simple use for the `idmc` package is to retrieve the data from the
+API directly into R.
+
+```{r api}
+df <- idmc_get_data()
+df
+```
+
+This data frame, with variables described in the
+[API documentation](https://www.internal-displacement.org/sites/default/files/IDMC_IDU_API_Codebook_14102020.pdf), includes 1 row per event.
+We can normalize this to daily displacement, assuming uniform distribution of displacement
+between start and end date, for all countries and type of displacement.
+`idmc_transform_daily()`.
+
+```{r transform}
+idmc_transform_daily(df)
+```
+
+While there are a few other parameters you can play around with in these functions,
+this is the primary purpose of this simple package.

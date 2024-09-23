@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -345,33 +345,33 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 data from the API directly into R.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">idmc_get_data</span>()</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>df</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 20,289 × 26</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;        id country  iso3  latitude longitude centroid displacement_type qualifier</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;    </span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt;  1 120233 United … USA      31.1     -93.2  [31.114… Disaster          total    </span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;  2 120186 United … USA      39.1     -94.5  [39.092… Disaster          total    </span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;  3 120191 United … USA      44.9    -123.   [44.912… Disaster          total    </span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  4 120197 Dominic… DOM      19.3     -70.0  [19.281… Disaster          total    </span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  5 120195 Dominic… DOM      19.3     -70.0  [19.281… Disaster          total    </span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  6 120110 France   FRA      44.5       6.47 [44.498… Disaster          more than</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  7 120124 Indones… IDN      -7.46    109.   [-7.458… Disaster          total    </span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  8 120188 United … USA      30.7     -93.5  [30.706… Disaster          total    </span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  9 120208 Viet Nam VNM      22.8     105.   [22.779… Disaster          total    </span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 10 120047 Philipp… PHL       6.85    124.   [6.8514… Disaster          total    </span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; # ℹ 20,279 more rows</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; # ℹ 18 more variables: figure &lt;int&gt;, displacement_date &lt;date&gt;,</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 32,622 × 37</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;        id country iso3  latitude longitude centroid      role  displacement_type</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;            </span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt;  1 162292 Ukraine UKR       48.0      37.8 [47.96067, 3… Reco… Conflict         </span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;  2 162336 Ukraine UKR       47.9      35.2 [47.85334, 3… Reco… Conflict         </span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;  3 162291 Ukraine UKR       48.0      37.8 [47.96067, 3… Reco… Conflict         </span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  4 162290 Ukraine UKR       48.0      37.8 [47.96067, 3… Reco… Conflict         </span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  5 162289 Ukraine UKR       48.0      37.8 [47.96067, 3… Reco… Conflict         </span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  6 162334 Ukraine UKR       47.6      35.8 [47.562408, … Reco… Conflict         </span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  7 162244 China   CHN       31.2     121.  [31.232269, … Tria… Disaster         </span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  8 162288 Ukraine UKR       48.0      37.8 [47.96067, 3… Reco… Conflict         </span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  9 162296 Ukraine UKR       52.0      33.2 [52.01416, 3… Reco… Conflict         </span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 10 162335 Ukraine UKR       47.7      35.4 [47.703671, … Reco… Conflict         </span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; # ℹ 32,612 more rows</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more variables: qualifier &lt;chr&gt;, figure &lt;int&gt;, displacement_date &lt;date&gt;,</span></span>
 <span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; #   displacement_start_date &lt;date&gt;, displacement_end_date &lt;date&gt;, year &lt;int&gt;,</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; #   event_name &lt;chr&gt;, event_start_date &lt;date&gt;, event_end_date &lt;date&gt;,</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; #   category &lt;chr&gt;, subcategory &lt;chr&gt;, type &lt;chr&gt;, subtype &lt;chr&gt;,</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; #   standard_popup_text &lt;chr&gt;, event_url &lt;chr&gt;, event_info &lt;chr&gt;,</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; #   standard_info_text &lt;chr&gt;, old_id &lt;chr&gt;, created_at &lt;date&gt;</span></span></code></pre></div>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; #   event_id &lt;int&gt;, event_name &lt;chr&gt;, event_codes &lt;chr&gt;,</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; #   event_code_types &lt;chr&gt;, event_start_date &lt;date&gt;, event_end_date &lt;date&gt;,</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; #   category &lt;chr&gt;, subcategory &lt;chr&gt;, type &lt;chr&gt;, subtype &lt;chr&gt;,</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; #   standard_popup_text &lt;chr&gt;, event_url &lt;chr&gt;, event_info &lt;chr&gt;, …</span></span></code></pre></div>
 <p>This data frame, with variables described in the <a href="https://www.internal-displacement.org/sites/default/files/IDMC_IDU_API_Codebook_14102020.pdf">API
 documentation</a>, includes 1 row per event. We can normalize this to
 daily displacement, assuming uniform distribution of displacement
 between start and end date, for all countries and type of displacement.
 <code>idmc_transform_daily()</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">idmc_transform_daily</span>(df)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 611,660 × 5</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 749,690 × 5</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;    iso3  country    displacement_type date       displacement_daily</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;             &lt;date&gt;                  &lt;dbl&gt;</span></span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;  1 AB9   Abyei Area Conflict          2018-01-01                  0</span></span>
@@ -384,7 +384,7 @@ between start and end date, for all countries and type of displacement.
 <span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  8 AB9   Abyei Area Conflict          2018-01-08                  0</span></span>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  9 AB9   Abyei Area Conflict          2018-01-09                  0</span></span>
 <span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; 10 AB9   Abyei Area Conflict          2018-01-10                  0</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 611,650 more rows</span></span></code></pre></div>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 749,680 more rows</span></span></code></pre></div>
 <p>While there are a few other parameters you can play around with in
 these functions, this is the primary purpose of this simple package.</p>
 

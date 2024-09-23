@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 api_envvar_available <- !is.na(Sys.getenv("IDMC_API", unset = NA))
 knitr::opts_chunk$set(
   collapse = TRUE,

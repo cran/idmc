@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval = !api_envvar_available, echo = FALSE, comment = NA-----------------
-#  message("`IDMC_API` env variable not set, so code chunks will not be evaluated.")
+# message("`IDMC_API` env variable not set, so code chunks will not be evaluated.")
 
 ## ----setup--------------------------------------------------------------------
 library(idmc)
